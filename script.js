@@ -16,7 +16,7 @@ append(hero, gen(span, 'instructionsButton', 'Instructions', 'button-blank', { "
 
 append(appmain, gen(div, "install", gen(h1, "", "Install"), 'section'))
 append(install, gen(div, "github", gen(h2, "", "Clone from Github")))
-append(github, gen(code, '', `git clone https://github.com/mgeekin/GeneratorJS.git`, 'code, small'))
+append(github, gen(code, '', `git clone https://github.com/GeneratorJs/generatorjs.cdn.git`, 'code, small'))
 //html include script tag
 append(install, gen(div, "scriptTag", gen(h2, "", "Add script module tag in html")))
 

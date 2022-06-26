@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Started with GeneratorJs</title>
+</head>
+
+<body>
+    <div id="app" class="app">
+
+    </div>
+
+    <script type="module" defer>
+        import "https://generatorjs.github.io/generatorjs.cdn/dist/latest/generator.modular.js"
+        // import "./cdn/latest/generator.js"
+
+
+
+        //your app logic
+        append(app, "", "over") /* reset app */
+        append(app, gen(header, "appheader", 'Header content', 'header'));
+        append(app, gen(main, "appmain", 'Main content', 'appmain container'));
+        append(app, gen(footer, "appfooter", "Footer content", 'container'));
+
+        // load(["./header.js", "./script.js", "./footer.js","./style.css"])// load js and css files
+        append(main, [gen(h1, "", "Hello GeneratorJs"), gen(p, "", "Yes, just Three functions for frontend."), gen(span, "", ["gen", "append", "load"]), gen(p, "", "And Three Optional functions."), gen(span, "", ["log", "getfile", "loadscss"])])
+
+
+
+        var siteStyleSCSS = `
+        //some temp style in nested css/ scss format
+        *{
+            margin:0;
+            padding:0;
+        }
+        #app{
+            display:flex;
+            flex-direction:column;
+            min-height:100vh;
+            color:white;
+            background-color:hsl(200,60%,20%);
+            font-size:1rem;
+            font-family:"arial","sans";
+            padding:5px;
+
+            h1{
+                padding-block:1em;
+            }
+            header{
+                background-color:hsl(240,50%,20%);
+                position:sticky;
+                top:0px;
+                min-height:2rem;
+                margin-bottom:5em;
+            }
+            main{
+                min-height:60vh;
+             p{
+                margin:1em;
+             }
+            span{
+                    padding:2em;
+                    margin-right:2em;
+                    color:aqua;
+                    text-transform:uppercase;
+                }   
+            }
+            footer{
+                background-color:hsl(160,50%,10%);
+            }
+            >*{
+                padding-block:3em;
+                padding-inline:2em;
+            }
+        }
+        `
+        loadscss(siteStyleSCSS)
+    </script>
+
+</body>
+
+</html>

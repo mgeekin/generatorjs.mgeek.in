@@ -1,0 +1,282 @@
+/* Reset style */
+* {
+    margin: 0px;
+    padding: 0px;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    transition: all 100ms ease-in-out;
+    color: $color;
+    scroll-behavior: smooth;
+    color-scheme: light;
+}
+
+:root {
+    font-size: 1rem;
+    font-family: $fontFamily;
+    text-shadow: .01em .01em .1em hsl(0, 0%, 16%);
+}
+
+body {
+    width: 100%;
+    background: $colorBody;
+    overflow-x: hidden;
+
+}
+
+
+a {
+    color: $linkcolor;
+}
+
+button,
+.button {
+    position: relative;
+    font-weight: 500;
+    display: inline-block;
+    outline: .2em solid hsl(184, 100%, 51%);
+    padding: .5em;
+    background: $colorButton;
+    color: $colorButtonText;
+    text-align: center;
+    text-shadow: none;
+    margin: 2em;
+    margin-left: 0;
+    text-transform: capitalize;
+    border-radius: .01em;
+
+
+    &:hover {
+        outline: 0.1em solid hsl(184, 100%, 51%);
+        box-shadow: 0px 0px .5em hsl(184, 100%, 51%);
+    }
+
+
+
+}
+
+.button-blank {
+    position: relative;
+    font-weight: 500;
+    display: inline-block;
+    outline: .2em solid hsl(184, 100%, 51%);
+    padding: .5em;
+    background: rgba(1, 1, 1, 0.1);
+    color: hsl(184, 100%, 51%);
+    text-align: center;
+    text-shadow: none;
+    margin: 2em;
+    margin-left: 0;
+    text-transform: capitalize;
+    border-radius: .01em;
+
+    &:hover {
+        outline: 0.1em solid hsl(184, 100%, 51%);
+        box-shadow: 0px 0px .5em hsl(184, 100%, 51%);
+    }
+}
+
+h1 {
+    font-family: $fonth1;
+    margin-bottom: 1em;
+    font-size: 4rem;
+    font-weight: 400;
+    // border-bottom: 2px solid red;
+    // display: inline-block;
+
+}
+
+h2 {
+    // font-family: $fonth2;
+    margin-bottom: 1em;
+    font-size: 2rem;
+    // font-style: italic;
+}
+
+h3 {
+    margin-bottom: 1em;
+    font-family: $fonth3;
+}
+
+h4 {
+    margin-bottom: 1em;
+    font-family: $fonth4
+}
+
+h5 {
+    margin-bottom: 1em;
+    font-family: $fonth5
+}
+
+h6 {
+    margin-bottom: 1em;
+    font-family: $fonth6
+}
+
+
+
+p {
+
+    // @extend .gold;
+    padding-top: 1em;
+    padding-bottom: 1em;
+}
+
+
+
+
+
+
+table {
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px #999;
+    padding: 20px;
+    width: 100%;
+
+    thead {
+        // background: rgba(1, 1, 1, 0.3);
+        padding: 2px;
+
+    }
+
+    tbody {
+
+
+        tr {
+            padding: 2px;
+
+            &:nth-child(odd) {
+                background: rgba(1, 1, 1, 0.5);
+            }
+
+            &:nth-child(even) {
+                background: rgba(236, 236, 236, 0.2);
+
+            }
+
+            td {
+                width: 70%;
+
+                &:nth-child(1) {
+                    width: 150px;
+                }
+            }
+
+        }
+    }
+}
+
+input,
+.input {
+    margin: 2px;
+    width: 100%;
+    background: #BBC;
+}
+
+video {
+    width: 100%;
+    margin: 10px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px white;
+    margin-bottom: 10%;
+
+}
+
+
+
+#app {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: $color;
+    // max-width: 100%;
+    // padding-left: 00%;
+    // padding-right: 00%;
+
+    #appmain {
+
+        position: relative;
+        background: $colorBG;
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+
+    }
+
+}
+
+.appcontainer {
+    padding-left: 10%;
+    padding-right: 10%;
+    margin: 0;
+}
+
+section,
+.section {
+    min-height: 80vh;
+}
+
+.section {
+    padding-top: 10em;
+    padding-bottom: 10em;
+
+    &-small {
+
+        margin-top: 2em;
+        margin-bottom: 2em;
+        padding-top: 5em;
+        padding-bottom: 5em;
+    }
+}
+
+
+
+ol {
+    list-style: none;
+    counter-reset: item;
+
+    li {
+        counter-increment: item;
+        margin-bottom: 5px;
+
+        &:before {
+            font-size: small;
+            margin-right: 10px;
+            content: counter(item);
+            background: $accentColor;
+            border-radius: 100%;
+            color: #222222;
+            padding: .1em;
+            margin: .5wdem;
+
+            width: 1.2em;
+            text-align: center;
+            display: inline-block;
+        }
+    }
+}
+
+.m {
+    &1 {
+        margin: 1em;
+        margin-left: 2em;
+    }
+}
+
+.p {
+    &1 {
+        padding-bottom: .5em;
+    }
+
+    &t {}
+
+    &b {}
+
+    &l {}
+}
+
+svg {
+    width: 100px;
+    height: 100px;
+}

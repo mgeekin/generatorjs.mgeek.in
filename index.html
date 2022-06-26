@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="title" property="og:title" content="GeneratorJs">
+    <meta name="image" property="og:image" content="/assets/img/logo.png">
+    <meta name="description" property="og:description"
+        content="A three function Javascript library for modular website frontend desing. Few functions to generate frontend design without juggeling between HTML CSS and JS. Reduce repetetive typing in HTML.">
+    <meta name="url" property="og:url" content="https://generatorjs.mgeek.in/">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+
+        }
+
+        :root {
+            --preloderHue: 20;
+            --loaded: 1;
+        }
+
+        .preloader {
+            display: grid;
+            place-items: center;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+            height: 100vh;
+            width: 100vw;
+            background: black;
+            color: white;
+            z-index: 100;
+            transition: opacity 2s ease;
+            /* z-index: calc(1000 * calc(100 - var(--loaded))); */
+            /* opacity: calc(1 - calc(100=var(--loaded))); */
+
+        }
+
+
+        .ring {
+            /* display: grid; */
+            position: absolute;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            box-shadow: 0 0 5px rgba(255, 255, 255, .3);
+
+        }
+
+        .ring::before {
+            display: grid;
+            place-items: center;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            color: #737373;
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            content: "Generating...";
+        }
+
+        .ring:after {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            content: "";
+            border-radius: 50%;
+            transform: rotate(calc(360deg * var(--loaded) / 10));
+            box-shadow: 1px 5px 2px hsl(calc(20 + var(--loaded)), 100%, 45%);
+            animation: ring 2s ease-in-out infinite;
+        }
+
+        .preloader-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            border: 1px solid hsl(calc(var(--preloderHue) + var(--loaded)), 100%, 25%);
+            width: calc(1% * var(--loaded));
+        }
+
+        @keyframes ring {
+            0% {
+                --loaded: 24;
+                transform: rotate(0deg);
+                box-shadow: 1px 5px 2px hsl(var(--loaded), 100%, 45%);
+            }
+
+
+            100% {
+                --loaded: 240;
+                transform: rotate(360deg);
+                box-shadow: 1px 5px 2px hsl(var(--loaded), 100%, 45%);
+            }
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="preloader" class="preloader center">
+        <div id="ring" class="ring"></div>
+        <span class="preloader-progress"></span>
+    </div>
+    <app id="app">
+    </app>
+
+    <script type="module">
+        import "https://generatorjs.github.io/generatorjs.cdn/dist/latest/generator.modular.js"
+        // import "./generatorjs.cdn/dist/latest/generator.modular.js"
+        import { site, social } from "./defaults.js"; // stores site and social dict // import { gen, append,
+
+        //your app logic
+        append(app, "", "over") /* reset app */
+        append(app, gen(header, "appheader", 'header', 'header'));
+        append(app, gen(main, "appmain", 'main', 'appmain appcontainer'));
+        append(app, gen(footer, "appfooter", "", 'appcontainer'));
+
+        // append(appmain, gen(div, "customizer", 'customizer', 'customizer')) // 
+        // append(app, gen(sidebar, "appsidebar", 'rightsidebar pagenav', 'sidebar,pagenav,sidebar-right'));
+        load(["./assets/styles/sitestyle.css", "./header.js", "./script.js", "./footer.js"])//append elements        to header footer and main section 
+
+
+        loaddefaults()
+
+
+
+        setTimeout(() => {
+            for (i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    var x = cssvar("--loaded");
+                    cssvar("--loaded", i)
+                }, 100)
+            }
+            document.getElementById("preloader").style.opacity = 0;
+            setTimeout(() => {
+                document.getElementById("preloader").style.zIndex = -1000;
+                document.getElementById("preloader").style.display = 'none';
+            }, 1000)
+        }, 2000)
+    </script>
+
+
+</body>
+
+</html>

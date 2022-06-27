@@ -32,9 +32,9 @@ append(scriptTag, gen(p, "", "By default it will try to load 'script.js from dir
 
 
 append(install, gen(div, "singlefile", gen(h2, "", "Template index.html")))
-singlehtmlcode = getfile("https://generatorjs.github.io/starter.html")
+// singlehtmlcode = getfile("https://generatorjs.github.io/starter.html")
 // 
-append(singlefile, gen(code, '', singlehtmlcode, 'code,small'))
+append(singlefile, gen(code, '', getfile("https://generatorjs.github.io/starter.html"), 'code,small'))
 
 
 

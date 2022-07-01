@@ -39,22 +39,34 @@ function loadHeader() {
 
     append(appnav, gen(ul, 'navul', "", "navul"))
     navLinksObj.forEach(navRow => {
-        append(navul, gen(li, "", gen(a, "", navRow[0], "", navRow[1])))
+        append(navul, gen(li, "", gen(a, "", navRow[0], "navullia", navRow[1]), "navulli", { "onclick": "toggleNavmenu()" }))
 
     });
 
 
 
 
+    // addtoggletoitems()
 
 
 
-    document.getElementById("navul").addEventListener("click", () => {
-        navmenu.checked = true
-    })
+
+
+
 
 };
+function toggleNavmenu() {
+    navmenu.checked = !(navmenu.checked)
+}
 loadHeader();
+
+
+
+
+
+
+
+
 document.title = site.title
 
 var headerStyle = `
@@ -63,11 +75,11 @@ var headerStyle = `
     top: 0px;
     display: flex;
     flex-direction: row;
-    min-height: 3em;
+    // min-height: 3em;
     justify-content: space-between;
     background: hsl(233, 76%, 6%);
     box-shadow: 0px 2px 3px rgba(0, 255, 242, 0.8);
-    z-index: 3;
+    z-index: 10;
     padding: 2px;
     padding-left: 20px;
     padding-right: 20px;
@@ -76,8 +88,17 @@ var headerStyle = `
         box-shadow: 0px 3px 4px rgba(0, 255, 242, 1);
     }
 
-    #logo>img {
+    #logo{
+    margin-block:auto;
+    img {
         max-width: 40px;
+        &:hover {
+            padding:calc(inherit + 2em );
+            margin:calc(inherit - 2em );
+            filter:drop-shadow(1px 2px .5px rgba(0, 0, 0, .8));
+            transform: scaleX(10) scaleY(10) translateX(50%) translateY(50%);
+        }
+    }
     }
 
     #title {
@@ -183,7 +204,6 @@ var headerStyle = `
             }
         }
     }
-
 
 
 

@@ -34,12 +34,34 @@ append(scriptTag, gen(p, "", "By default it will try to load 'script.js from dir
 append(install, gen(div, "singlefile", gen(h2, "", "Template index.html")))
 
 
-var singlehtmlcode = getfile("https://generatorjs.github.io/starter.html");
-setTimeout(() => {
-    append(singlefile, gen(code, 'singlefilecode', singlehtmlcode, 'code,small'))
-}, 1500)
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+let singlehtmlcode = new Promise(function (resolve, reject) {
+    var res = getfile("https://generatorjs.github.io/starter.html");
+    resolve(res);
+    reject(err);
+
+}).then(
+    function (value) { /* code if some error */
+        append(singlefile, gen(code, 'singlefilecode', value, 'code,small'))
+    },
+    function (error) { console.error(error) }
+);
 
 
 
@@ -82,3 +104,4 @@ instArray = ['Tagname can be any commonly used html tag, like div, p, img, span 
 
 document.getElementById(`installButton`).addEventListener('click', () => { install.scrollIntoView({ block: 'center', behavior: 'smooth' }) })
 document.getElementById(`instructionsButton`).addEventListener('click', () => { instructions.scrollIntoView({ block: 'center', behavior: 'smooth' }) })
+

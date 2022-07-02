@@ -79,6 +79,8 @@
 
 
 #hero {
+    z-index: 1;
+
     h1 {
         font-size: 3rem;
         font-weight: bolder;
@@ -130,61 +132,7 @@ code,
     font-size: small;
 }
 
-#gameInst {
-    opacity: .05;
-    transition: all 500ms ease-out;
-    animation: gameblink 2s 5;
-    padding: 50px;
 
-    &:hover {
-        opacity: .5;
-        // animation: gameblink 2s 1;
-    }
-
-    #keylist {
-        display: flex;
-
-        .gamekey {
-            display: flex;
-            justify-content: left;
-            padding: 4wpx;
-            min-height: 40px;
-            min-width: 40px;
-            margin: 4px;
-            font-style: italic;
-            border-radius: 2px;
-            border: 1px solid #fff;
-
-        }
-    }
-
-
-}
-
-@keyframes gameblink {
-    from {
-        opacity: .01;
-    }
-
-
-    to {
-        opacity: .1;
-    }
-
-}
-
-.copyIcon {
-    display: inline;
-    position: absolute;
-    border-radius: .5em;
-    width: 2em;
-    height: 1em;
-    background-color: rgba(255, 255, 255, .5);
-    top: 0px;
-    right: 0px;
-    border: 1px solid aqua;
-
-}
 
 .full {
     position: relative;

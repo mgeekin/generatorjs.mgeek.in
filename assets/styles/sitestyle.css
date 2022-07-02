@@ -1,36 +1,9 @@
 /* Fonts and Variables */
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:ital,wght@0,700;1,400&family=Cutive+Mono&family=Dancing+Script&family=Exo&family=Roboto:wght@100&display=swap");
-.gold {
-  /* Set the background color */
-  background: #918c00;
-  background: linear-gradient(130deg, #8a8300 0%, #bdaa00 31%, #a19700 51%, #ffdb00 71%, #4b4101 100%);
-  /* Mask the color to the text, and remove the rest  */
-  -webkit-background-clip: text;
-  /* Make the text fill color value transparent so the masked background color comes through */
-  -webkit-text-fill-color: transparent;
-  text-shadow: 1px 1px 0px rgba(226, 219, 0, 0.2);
+:root {
+  --hue: 239;
 }
 
-/* --background-color:hsl(237, 79%, 9%);
---text-color:#EEF !default;
---foot-text-color:hsl(197, 61%, 63%) --accent-color:hsl(180, 100%, 50%);
---link-color:#ddd;
---background-gradient:linear-gradient(-30deg, hsl(239, 40%, 42%) 70%, hsl(340, 83%, 55%) 200%) no-repeat scroll 0 !default;
-
-
-$colorBG:var(--background-gradient);
-$color:var(--text-color);
-$fontFamily: "Exo",
-'Verdana' !default;
-$fontHeading:'Inter',
-"Play",
-'Verdana';
-$accentColor:var(--accent-color);
-$colorButton:linear-gradient(0deg, hsl(182, 100%, 52%) 10%, hsl(182, 100%, 73%) 80%, hsl(182, 100%, 52%) 100%) no-repeat scroll 0 !default;
-$colorButtonText:hsl(197, 80%, 22%);
-$linkcolor:var(--link-color);
-$colorBody:var(--background-color);
-$footcolor:var(--foot-text-color); */
 /* Reset style */
 * {
   margin: 0px;
@@ -207,11 +180,11 @@ video {
       -ms-flex-pack: justify;
           justify-content: space-between;
   color: #EEF;
+  background: linear-gradient(-30deg, #404296 70%, #eb2d6d 200%) no-repeat scroll 0;
 }
 
 #app #appmain {
   position: relative;
-  background: linear-gradient(-30deg, #404296 70%, #eb2d6d 200%) no-repeat scroll 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -224,10 +197,8 @@ video {
           flex-direction: column;
 }
 
-.appcontainer {
-  padding-left: 10%;
-  padding-right: 10%;
-  margin: 0;
+.container {
+  padding-inline: clamp(1em, 10vw, 15%);
 }
 
 section,
@@ -360,6 +331,10 @@ svg {
   }
 }
 
+#hero {
+  z-index: 1;
+}
+
 #hero h1 {
   font-size: 3rem;
   font-weight: bolder;
@@ -415,71 +390,6 @@ code:hover:after,
 
 .small {
   font-size: small;
-}
-
-#gameInst {
-  opacity: .05;
-  -webkit-transition: all 500ms ease-out;
-  transition: all 500ms ease-out;
-  -webkit-animation: gameblink 2s 5;
-          animation: gameblink 2s 5;
-  padding: 50px;
-}
-
-#gameInst:hover {
-  opacity: .5;
-}
-
-#gameInst #keylist {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#gameInst #keylist .gamekey {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-  padding: 4wpx;
-  min-height: 40px;
-  min-width: 40px;
-  margin: 4px;
-  font-style: italic;
-  border-radius: 2px;
-  border: 1px solid #fff;
-}
-
-@-webkit-keyframes gameblink {
-  from {
-    opacity: .01;
-  }
-  to {
-    opacity: .1;
-  }
-}
-
-@keyframes gameblink {
-  from {
-    opacity: .01;
-  }
-  to {
-    opacity: .1;
-  }
-}
-
-.copyIcon {
-  display: inline;
-  position: absolute;
-  border-radius: .5em;
-  width: 2em;
-  height: 1em;
-  background-color: rgba(255, 255, 255, 0.5);
-  top: 0px;
-  right: 0px;
-  border: 1px solid aqua;
 }
 
 .full {

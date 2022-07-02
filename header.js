@@ -37,6 +37,7 @@ function loadHeader() {
     ];
 
 
+    // append(appnav, gen(ul, 'navul', "", "navul"))
     append(appnav, gen(ul, 'navul', "", "navul"))
     navLinksObj.forEach(navRow => {
         append(navul, gen(li, "", gen(a, "", navRow[0], "navullia", navRow[1]), "navulli", { "onclick": "toggleNavmenu()" }))
@@ -70,16 +71,17 @@ loadHeader();
 document.title = site.title
 
 var headerStyle = `
-#appheader {
+.header {
+    
     position: sticky;
     top: 0px;
     display: flex;
     flex-direction: row;
     // min-height: 3em;
     justify-content: space-between;
-    background: hsl(233, 76%, 6%);
+    background-color: hsla(233, 76%, 6%,1);
     box-shadow: 0px 2px 3px rgba(0, 255, 242, 0.8);
-    z-index: 10;
+    z-index: 20;
     padding: 2px;
     padding-left: 20px;
     padding-right: 20px;
@@ -143,31 +145,31 @@ var headerStyle = `
         #navul {
             margin: auto;
             display: grid;
-
+    
             li {
-
+    
                 text-transform: capitalize;
                 font-size: .8rem;
                 font-weight: 700;
                 text-decoration: none;
                 color: white;
-
+    
                 a {
                     padding-left: 5px;
                     padding-right: 5px;
-
+    
                     &:hover {
                         color: aqua;
                     }
                 }
-
-
+    
+    
             }
         }
+    
     }
 
-
-
+  
 
 
     #navmenulabel {
@@ -235,7 +237,7 @@ var headerStyle = `
 
 
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
     #navmenulabel {
         display: flex;
         z-index: 4;
@@ -246,13 +248,26 @@ var headerStyle = `
         grid-auto-flow: row;
         grid-gap: 1em;
         position: fixed;
-        bottom: 0px;
+        top: 0px;
         left: 0px;
+        max-width: min(400px,80vw);
         height: 100%;
-        width: 75vw;
+        width: 75%;
         background-color: hsla(219, 72%, 15%, .99);
-        transform: translateX(0%);
-        box-shadow: 0px 0px 2px 100vw hsla(0, 0%, 0%, 0.8);
+        // transform: translateX(0%);
+        transform: translateX(0);
+        box-shadow: 2px 2px 2px hsla(0, 0%, 50%, 0.8);
+
+
+        // &:before{
+        //     position: absolute;
+        //     top: 0px;
+        //     content:"hi"
+        //     width:10em;
+        //     height:10em;
+        //     background-color: hsla(219, 72%, 15%, .99);
+        //     transform:rotateZ(45deg);
+        // }
 
         li {
 
@@ -264,6 +279,7 @@ var headerStyle = `
                 height: 100%;
                 text-transform: uppercase;
                 border-radius: 5px;
+                padding:2em;
 
                 &:hover {
                     background-color: hsla(240, 72%, 10%, .5);
@@ -284,7 +300,7 @@ var headerStyle = `
 }
 
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 900px) {
 
     #navmenulabel {
         display: none;

@@ -192,12 +192,16 @@ video {
     color: $color;
     // max-width: 100%;
     // padding-left: 00%;
-    // padding-right: 00%;
+    // padding-right: 00%
+    background: $colorBG;
 
+    // background: hsla(var(--hue, 40), var(--sat, 40%), calc(var(--light, 35%) * var(--lightFactor, 1)), var(--alpha, 1));
+    // color: hsla(var(--hue, 40), calc(100% - var(--sat, 40%)), calc(100% - calc(var(--light, 35%) * var(--lightFactor, 1))), var(--alpha, 1));
+    // color: hsla(var(--hue, 40), var(--sat, 40%), calc(var(--light, 35%) * var(--lightFactor, 1)), var(--alpha, 1));
     #appmain {
 
         position: relative;
-        background: $colorBG;
+
         display: flex;
         align-items: left;
         flex-direction: column;
@@ -206,10 +210,8 @@ video {
 
 }
 
-.appcontainer {
-    padding-left: 10%;
-    padding-right: 10%;
-    margin: 0;
+.container {
+    padding-inline: clamp(1em, 10vw, 15%);
 }
 
 section,

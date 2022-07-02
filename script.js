@@ -1,5 +1,5 @@
 //hero section
-append(appmain, gen("section", "hero", gen("h1", "", site.title), 'section'), 'over')
+append(appmain, gen("section", "hero", gen("h1", "", site.title), 'section '), 'over')
 
 append(hero,
     [
@@ -54,7 +54,7 @@ append(install, gen(div, "singlefile", gen(h2, "", "Template index.html")))
 let singlehtmlcode = new Promise(function (resolve, reject) {
     var res = getfile("https://generatorjs.github.io/starter.html");
     resolve(res);
-    reject(err);
+    // reject(error);
 
 }).then(
     function (value) { /* code if some error */

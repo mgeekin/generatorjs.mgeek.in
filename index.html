@@ -100,8 +100,7 @@
 
         }
     </style>
-    <!-- <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" /> -->
+
 </head>
 
 <body>
@@ -113,6 +112,8 @@
     </app>
 
     <script type="module">
+        window.DEBUG = 1;
+        if (window.DEBUG == 1) document.getElementById("preloader").style.zIndex = -1000;
         // import "https://generatorjs.github.io/generatorjs.cdn/dist/latest/generator.modular.js"
         // import "./generatorjs.cdn/dist/latest/generator.modular.js"
         import "./generatorjs.cdn/src/generator.modular.js"
@@ -121,8 +122,8 @@
         //your app logic
         append(app, "", "over") /* reset app */
         append(app, gen(header, "appheader", 'header', 'header'));
-        append(app, gen(main, "appmain", 'main', 'appmain appcontainer'));
-        append(app, gen(footer, "appfooter", "", 'appcontainer'));
+        append(app, gen(main, "appmain", 'main', 'appmain container'));
+        append(app, gen(footer, "appfooter", "", ''));
 
         // append(appmain, gen(div, "customizer", 'customizer', 'customizer')) // 
         // append(app, gen(sidebar, "appsidebar", 'rightsidebar pagenav', 'sidebar,pagenav,sidebar-right'));

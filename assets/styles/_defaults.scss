@@ -9,18 +9,21 @@
     color: $color;
     scroll-behavior: smooth;
     color-scheme: light;
+    hyphens: auto;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 :root {
     font-size: 1rem;
     font-family: $fontFamily;
     text-shadow: .01em .01em .1em hsl(0, 0%, 16%);
+
 }
 
 body {
     width: 100%;
     background: $colorBody;
-    overflow-x: hidden;
 
 }
 

@@ -1,7 +1,7 @@
 /* Fonts and Variables */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:ital,wght@0,700;1,400&family=Cutive+Mono&family=Dancing+Script&family=Exo&family=Roboto:wght@100&display=swap');
 
-$colorBG:linear-gradient(-30deg, hsl(239, 40%, 42%) 70%, hsl(340, 83%, 55%) 200%) no-repeat scroll 0 !default;
+$colorBG:linear-gradient(-30deg, hsl(200, 80%, 20%) 70%, hsl(340, 83%, 55%) 200%) no-repeat scroll 0 !default;
 
 :root {
     --hue: 239;
@@ -32,7 +32,8 @@ $fontCode:'Cutive Mono',
 $fontHand:'Dancing Script',
 'Exo';
 $accentColor:hsl(180, 100%, 50%);
-$colorButton:linear-gradient(0deg, hsl(182, 100%, 52%) 10%, hsl(182, 100%, 73%) 80%, hsl(182, 100%, 52%) 100%) no-repeat scroll 0 !default;
+// $colorButton:linear-gradient(0deg, hsl(182, 100%, 52%) 10%, hsl(182, 100%, 73%) 80%, hsl(182, 100%, 52%) 100%) no-repeat scroll 0 !default;
+$colorButton:linear-gradient(0deg, hsl(182, 100%, 42%) 10%, hsl(182, 100%, 60%) 80%, hsl(182, 100%, 32%) 100%) no-repeat scroll 0 !default;
 $colorButtonText:hsl(197, 80%, 22%);
 $linkcolor:#ddd;
 $colorBody:hsl(237, 79%, 9%);

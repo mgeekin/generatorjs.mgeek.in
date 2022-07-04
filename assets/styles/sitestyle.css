@@ -42,8 +42,8 @@ button,
   display: inline-block;
   outline: 0.2em solid #05eeff;
   padding: .5em;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(10%, #0af7ff), color-stop(80%, #75faff), to(#0af7ff)) no-repeat scroll 0;
-  background: linear-gradient(0deg, #0af7ff 10%, #75faff 80%, #0af7ff 100%) no-repeat scroll 0;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(10%, #00cfd6), color-stop(80%, #33f8ff), to(#009ea3)) no-repeat scroll 0;
+  background: linear-gradient(0deg, #00cfd6 10%, #33f8ff 80%, #009ea3 100%) no-repeat scroll 0;
   color: #0b4c65;
   text-align: center;
   text-shadow: none;
@@ -180,7 +180,7 @@ video {
       -ms-flex-pack: justify;
           justify-content: space-between;
   color: #EEF;
-  background: linear-gradient(-30deg, #404296 70%, #eb2d6d 200%) no-repeat scroll 0;
+  background: linear-gradient(-30deg, #0a415c 70%, #eb2d6d 200%) no-repeat scroll 0;
   font-size: clamp(1em, 2vw, 1.2em);
 }
 

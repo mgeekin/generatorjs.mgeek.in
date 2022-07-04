@@ -9,13 +9,13 @@
     color: $color;
     scroll-behavior: smooth;
     color-scheme: light;
-    hyphens: auto;
-    word-wrap: break-word;
-    word-break: break-all;
+    // hyphens: auto;
+    // word-wrap: break-word;
+    // word-break: break-all;
+
 }
 
 :root {
-    font-size: 1rem;
     font-family: $fontFamily;
     text-shadow: .01em .01em .1em hsl(0, 0%, 16%);
 
@@ -24,6 +24,8 @@
 body {
     width: 100%;
     background: $colorBody;
+    overflow-x: hidden;
+    font-size: 1rem;
 
 }
 
@@ -82,7 +84,7 @@ button,
 h1 {
     font-family: $fonth1;
     margin-bottom: 1em;
-    font-size: 4rem;
+    font-size: clamp(1.2em, 5vw, 4em);
     font-weight: 400;
     // border-bottom: 2px solid red;
     // display: inline-block;
@@ -92,7 +94,7 @@ h1 {
 h2 {
     // font-family: $fonth2;
     margin-bottom: 1em;
-    font-size: 2rem;
+    font-size: clamp(1.1em, 4vw, 2em);
     // font-style: italic;
 }
 
@@ -197,6 +199,7 @@ video {
     // padding-left: 00%;
     // padding-right: 00%
     background: $colorBG;
+    font-size: clamp(1em, 2vw, 1.2em);
 
     // background: hsla(var(--hue, 40), var(--sat, 40%), calc(var(--light, 35%) * var(--lightFactor, 1)), var(--alpha, 1));
     // color: hsla(var(--hue, 40), calc(100% - var(--sat, 40%)), calc(100% - calc(var(--light, 35%) * var(--lightFactor, 1))), var(--alpha, 1));

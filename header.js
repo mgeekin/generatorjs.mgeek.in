@@ -86,6 +86,7 @@ var headerStyle = `
     padding-left: 20px;
     padding-right: 20px;
 
+    
     &:hover {
         box-shadow: 0px 3px 4px rgba(0, 255, 242, 1);
     }

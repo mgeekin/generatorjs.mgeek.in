@@ -1,8 +1,7 @@
 @import "./variables";
 @import "./defaults";
-@import "./header";
-@import "./footer";
-
+// @import "./header";
+// @import "./footer";
 
 
 
@@ -84,7 +83,7 @@
     h1 {
         font-size: 3rem;
         font-weight: bolder;
-        font-family: 'Exo', 'Arial Narrow', Arial, sans-serif;
+        font-family: $fonth1;
     }
 
     p {
@@ -102,7 +101,7 @@ code,
     position: relative;
     flex-direction: column;
     flex-wrap: wrap;
-    background-color: hsla(0, 0%, 0%, .2);
+    background-color: hsla(0, 0%, calc(100% * var(--lightFactor)), .2);
     padding: 1em;
     margin: 2em;
     border-radius: .5em;

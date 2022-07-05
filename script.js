@@ -1,5 +1,5 @@
 //hero section
-append(appmain, gen("section", "hero", gen("h1", "", site.title), 'section '), 'over')
+append(appmain, gen("section", "hero", gen("h1", "", site.title), 'section container'), 'over')
 
 append(hero,
     [
@@ -14,7 +14,7 @@ append(hero, gen(span, 'instructionsButton', 'Instructions', 'button-blank', { "
 
 
 
-append(appmain, gen(div, "install", gen(h1, "", "Install"), 'section'))
+append(appmain, gen(section, "install", gen(h1, "", "Install"), 'section container'))
 append(install, gen(div, "github", gen(h2, "", "Clone from Github")))
 append(github, gen(code, '', `git clone https://github.com/GeneratorJs/generatorjs.cdn.git`, 'code, small'))
 //html include script tag
@@ -69,7 +69,7 @@ singlehtmlcode.then(singlehtmlcode => {
 
 
 
-append(appmain, gen(div, "instructions", gen(h1, "", "Instructions"), 'section'))
+append(appmain, gen(section, "instructions", gen(h1, "", "Instructions"), 'section container'))
 
 append(instructions, gen(h2, "", 'It has three functions'))
 // gen based on array to be done

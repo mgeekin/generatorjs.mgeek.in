@@ -1,7 +1,22 @@
 /* Fonts and Variables */
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:ital,wght@0,700;1,400&family=Cutive+Mono&family=Dancing+Script&family=Exo&family=Roboto:wght@100&display=swap");
 :root {
-  --hue: 239;
+  --hue: 240;
+  --hueTwo: 200;
+  --hueAscent: 180;
+  --satAscent: 100%;
+  --lightAscent: 60%;
+  --sat: 60%;
+  --light: 15%;
+  --lightFactor: 1;
+  --alpha: 1;
+  --textColor: white;
+  --fontScale: 1;
+}
+
+body {
+  background: hsl(var(--hue), var(--sat), calc(var(--light) * var(--lightFactor)));
+  text-shadow: var(--textShadow);
 }
 
 /* Reset style */
@@ -14,21 +29,20 @@
           box-sizing: border-box;
   -webkit-transition: all 100ms ease-in-out;
   transition: all 100ms ease-in-out;
-  color: #EEF;
   scroll-behavior: smooth;
-  color-scheme: light;
 }
 
 :root {
   font-family: "Exo", "Verdana";
-  text-shadow: 0.01em 0.01em 0.1em #292929;
+  color-scheme: var(--color-scheme, dark);
 }
 
 body {
   width: 100%;
-  background: #050729;
   overflow-x: hidden;
-  font-size: 1rem;
+  --fontSize: calc(1rem * var(--fontScale, 1));
+  font-size: var(--fontSize, 1rem);
+  text-shadow: 0.01em 0.01em 0.1em var(--textShadow);
 }
 
 a {
@@ -40,10 +54,10 @@ button,
   position: relative;
   font-weight: 500;
   display: inline-block;
-  outline: 0.2em solid #05eeff;
+  outline: 0.2em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
   padding: .5em;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(10%, #00cfd6), color-stop(80%, #33f8ff), to(#009ea3)) no-repeat scroll 0;
-  background: linear-gradient(0deg, #00cfd6 10%, #33f8ff 80%, #009ea3 100%) no-repeat scroll 0;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(10%, hsl(var(--hueAscent), var(--lightAscent), 42%)), color-stop(80%, hsl(var(--hueAscent), var(--lightAscent), 60%)), to(hsl(var(--hueAscent), var(--lightAscent), 32%))) no-repeat scroll 0;
+  background: linear-gradient(0deg, hsl(var(--hueAscent), var(--lightAscent), 42%) 10%, hsl(var(--hueAscent), var(--lightAscent), 60%) 80%, hsl(var(--hueAscent), var(--lightAscent), 32%) 100%) no-repeat scroll 0;
   color: #0b4c65;
   text-align: center;
   text-shadow: none;
@@ -55,19 +69,19 @@ button,
 
 button:hover,
 .button:hover {
-  outline: 0.1em solid #05eeff;
-  -webkit-box-shadow: 0px 0px 0.5em #05eeff;
-          box-shadow: 0px 0px 0.5em #05eeff;
+  outline: 0.1em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
+  -webkit-box-shadow: 0px 0px 0.5em hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
+          box-shadow: 0px 0px 0.5em hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
 }
 
 .button-blank {
   position: relative;
   font-weight: 500;
   display: inline-block;
-  outline: 0.2em solid #05eeff;
+  outline: 0.2em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
   padding: .5em;
   background: rgba(1, 1, 1, 0.1);
-  color: #05eeff;
+  color: hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
   text-align: center;
   text-shadow: none;
   margin: 2em;
@@ -77,9 +91,9 @@ button:hover,
 }
 
 .button-blank:hover {
-  outline: 0.1em solid #05eeff;
-  -webkit-box-shadow: 0px 0px 0.5em #05eeff;
-          box-shadow: 0px 0px 0.5em #05eeff;
+  outline: 0.1em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
+  -webkit-box-shadow: 0px 0px 0.5em hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
+          box-shadow: 0px 0px 0.5em hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
 }
 
 h1 {
@@ -168,6 +182,9 @@ video {
 }
 
 #app {
+  --h: var(--hue, 200);
+  --s: calc(var(--sat) / var(--lightFactor));
+  --l: calc(var(--light) * var(--lightFactor));
   position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -179,9 +196,8 @@ video {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  color: #EEF;
-  background: linear-gradient(-30deg, #0a415c 70%, #eb2d6d 200%) no-repeat scroll 0;
   font-size: clamp(1em, 2vw, 1.2em);
+  background: linear-gradient(-30deg, hsla(var(--hue, 239), var(--s), var(--l), var(--alpha)) -10%, hsla(var(--hueTwo), calc(var(--sat) / var(--lightFactor)), calc(var(--light) * var(--lightFactor)), 1) 100%) no-repeat scroll 0;
 }
 
 #app #appmain {
@@ -219,6 +235,22 @@ section,
   padding-bottom: 5em;
 }
 
+.section {
+  padding-block: clamp(4em, 15vh, 15em);
+  --a: .1;
+  background-color: hsla(var(--h), var(--sec-sat), var(--sec-light), var(--a));
+}
+
+.section:nth-child(even) {
+  --sec-sat: calc(var(--s) * 1.2);
+  --sec-light: calc(var(--l) * .8);
+}
+
+.section:nth-child(odd) {
+  --sec-sat: calc(var(--s) * .8);
+  --sec-light: calc(var(--l) * 1.2);
+}
+
 ol {
   list-style: none;
   counter-reset: item;
@@ -233,7 +265,7 @@ ol li:before {
   font-size: small;
   margin-right: 10px;
   content: counter(item);
-  background: cyan;
+  background: hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
   border-radius: 100%;
   color: #222222;
   padding: .1em;
@@ -339,7 +371,7 @@ svg {
 #hero h1 {
   font-size: 3rem;
   font-weight: bolder;
-  font-family: 'Exo', 'Arial Narrow', Arial, sans-serif;
+  font-family: "Bebas Neue", "Arial";
 }
 
 #hero p {
@@ -362,7 +394,7 @@ code,
           flex-direction: column;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: hsla(0, 0%, calc(100% * var(--lightFactor)), 0.2);
   padding: 1em;
   margin: 2em;
   border-radius: .5em;

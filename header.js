@@ -80,7 +80,8 @@ var headerStyle = `
     // min-height: 3em;
     justify-content: space-between;
     background-color: hsla(233, 76%, 6%,1);
-    box-shadow: 0px 2px 3px rgba(0, 255, 242, 0.8);
+    color:white;
+    box-shadow: 0px 2px 3px hsla(var(--hueAscent),var(--lightAscent),var(--lightAscent),.8);
     z-index: 20;
     padding: 2px;
     padding-left: 20px;
@@ -88,7 +89,7 @@ var headerStyle = `
 
     
     &:hover {
-        box-shadow: 0px 3px 4px rgba(0, 255, 242, 1);
+        box-shadow: 0px 3px 4px hsl(var(--hueAscent),var(--lightAscent),var(--lightAscent));
     }
 
     #logo{
@@ -120,6 +121,8 @@ var headerStyle = `
                 padding-left: 5px;
                 padding-right: 15px;
 
+*{            color:hsl(var(--hueAscent),var(--lightAscent),var(--lightAscent));                                                                                                                                      
+}
             }
 
             #sitesubtitle {
@@ -160,7 +163,7 @@ var headerStyle = `
                     padding-right: 5px;
     
                     &:hover {
-                        color: aqua;
+                        color: hsl(var(--hueAscent),var(--lightAscent),var(--lightAscent));
                     }
                 }
     
@@ -203,7 +206,7 @@ var headerStyle = `
 
             //
             .ham1 {
-                box-shadow: 0px 6px 0px aqua, 0px -6px 0px aqua;
+                box-shadow: 0px 6px 0px hsl(var(--hueAscent),var(--lightAscent),var(--lightAscent)), 0px -6px 0px hsl(var(--hueAscent),var(--lightAscent),var(--lightAscent));
             }
         }
     }
@@ -217,7 +220,7 @@ var headerStyle = `
 
     #navmenu:not(:checked)+#navmenulabel>.ham1 {
         transform: rotateZ(45deg);
-        box-shadow: -0px 0px 0px 1px aqua;
+        box-shadow: -0px 0px 0px 1px hsl(var(--hueAscent),var(--lightAscent),var(--lightAscent));
 
         &:before {
             content: "";

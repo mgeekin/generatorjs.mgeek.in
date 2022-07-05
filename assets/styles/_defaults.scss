@@ -6,9 +6,7 @@
     list-style: none;
     box-sizing: border-box;
     transition: all 100ms ease-in-out;
-    color: $color;
     scroll-behavior: smooth;
-    color-scheme: light;
     // hyphens: auto;
     // word-wrap: break-word;
     // word-break: break-all;
@@ -17,17 +15,20 @@
 
 :root {
     font-family: $fontFamily;
-    text-shadow: .01em .01em .1em hsl(0, 0%, 16%);
+    color-scheme: var(--color-scheme, dark);
 
 }
 
 body {
     width: 100%;
-    background: $colorBody;
+    // background: $colorBody;
     overflow-x: hidden;
-    font-size: 1rem;
-
+    --fontSize: calc(1rem * var(--fontScale, 1));
+    font-size: var(--fontSize, 1rem);
+    text-shadow: .01em .01em .1em var(--textShadow);
+    // background-color: red;
 }
+
 
 
 a {
@@ -39,7 +40,7 @@ button,
     position: relative;
     font-weight: 500;
     display: inline-block;
-    outline: .2em solid hsl(184, 100%, 51%);
+    outline: .2em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
     padding: .5em;
     background: $colorButton;
     color: $colorButtonText;
@@ -52,8 +53,8 @@ button,
 
 
     &:hover {
-        outline: 0.1em solid hsl(184, 100%, 51%);
-        box-shadow: 0px 0px .5em hsl(184, 100%, 51%);
+        outline: 0.1em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
+        box-shadow: 0px 0px .5em hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
     }
 
 
@@ -64,10 +65,10 @@ button,
     position: relative;
     font-weight: 500;
     display: inline-block;
-    outline: .2em solid hsl(184, 100%, 51%);
+    outline: .2em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
     padding: .5em;
     background: rgba(1, 1, 1, 0.1);
-    color: hsl(184, 100%, 51%);
+    color: hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
     text-align: center;
     text-shadow: none;
     margin: 2em;
@@ -76,8 +77,8 @@ button,
     border-radius: .01em;
 
     &:hover {
-        outline: 0.1em solid hsl(184, 100%, 51%);
-        box-shadow: 0px 0px .5em hsl(184, 100%, 51%);
+        outline: 0.1em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
+        box-shadow: 0px 0px .5em hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
     }
 }
 
@@ -190,20 +191,19 @@ video {
 
 
 #app {
+    --h: var(--hue, 200);
+    --s: calc(var(--sat) / var(--lightFactor));
+    --l: calc(var(--light) * var(--lightFactor));
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    color: $color;
-    // max-width: 100%;
-    // padding-left: 00%;
-    // padding-right: 00%
-    background: $colorBG;
+    // --fontSize: calc(clamp(1em, 2vw, 1.2em) * var(--fontScale));
+    // font-size: var(--fontSize);
     font-size: clamp(1em, 2vw, 1.2em);
+    background: linear-gradient(-30deg, hsla(var(--hue, 239), var(--s), var(--l), var(--alpha)) -10%, hsla(var(--hueTwo), calc(var(--sat) / var(--lightFactor)), calc(var(--light) * var(--lightFactor)), 1) 100%) no-repeat scroll 0;
 
-    // background: hsla(var(--hue, 40), var(--sat, 40%), calc(var(--light, 35%) * var(--lightFactor, 1)), var(--alpha, 1));
-    // color: hsla(var(--hue, 40), calc(100% - var(--sat, 40%)), calc(100% - calc(var(--light, 35%) * var(--lightFactor, 1))), var(--alpha, 1));
-    // color: hsla(var(--hue, 40), var(--sat, 40%), calc(var(--light, 35%) * var(--lightFactor, 1)), var(--alpha, 1));
+
     #appmain {
 
         position: relative;
@@ -237,6 +237,25 @@ section,
         padding-bottom: 5em;
     }
 }
+
+
+
+.section {
+    padding-block: clamp(4em, 15vh, 15em);
+    --a: .1;
+    background-color: hsla(var(--h), var(--sec-sat), var(--sec-light), var(--a));
+
+    &:nth-child(even) {
+        --sec-sat: calc(var(--s) * 1.2);
+        --sec-light: calc(var(--l) * .8);
+    }
+
+    &:nth-child(odd) {
+        --sec-sat: calc(var(--s) * .8);
+        --sec-light: calc(var(--l) * 1.2);
+    }
+}
+
 
 
 

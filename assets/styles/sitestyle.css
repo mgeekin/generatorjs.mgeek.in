@@ -1,5 +1,5 @@
 /* Fonts and Variables */
-@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:ital,wght@0,700;1,400&family=Cutive+Mono&family=Dancing+Script&family=Exo&family=Roboto:wght@100&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:ital,wght@0,700;1,400&family=Cutive+Mono&family=Poppins&family=Dancing+Script&family=Exo&family=Roboto:wght@100&display=swap");
 :root {
   --hue: 240;
   --hueTwo: 200;
@@ -12,6 +12,7 @@
   --alpha: 1;
   --textColor: white;
   --fontScale: 1;
+  --fontFamily: "Poppins", "Verdana";
 }
 
 body {
@@ -33,7 +34,7 @@ body {
 }
 
 :root {
-  font-family: "Exo", "Verdana";
+  font-family: var(--fontFamily), "Exo", "Verdana";
   color-scheme: var(--color-scheme, dark);
 }
 
@@ -97,7 +98,7 @@ button:hover,
 }
 
 h1 {
-  font-family: "Bebas Neue", "Arial";
+  font-family: var(--fontFamily), "Bebas Neue", "Arial";
   margin-bottom: 1em;
   font-size: clamp(1.2em, 5vw, 4em);
   font-weight: 400;
@@ -110,22 +111,22 @@ h2 {
 
 h3 {
   margin-bottom: 1em;
-  font-family: "Comic Neue", "Arial";
+  font-family: var(--fontFamily), "Comic Neue", "Arial";
 }
 
 h4 {
   margin-bottom: 1em;
-  font-family: "Bebas Neue", "Verdana", "Arial";
+  font-family: var(--fontFamily), "Bebas Neue", "Verdana", "Arial";
 }
 
 h5 {
   margin-bottom: 1em;
-  font-family: "Dancing Script", "Verdana", "Arial";
+  font-family: var(--fontFamily), "Dancing Script", "Verdana", "Arial";
 }
 
 h6 {
   margin-bottom: 1em;
-  font-family: "Dancing Script", "Verdana", "Arial";
+  font-family: var(--fontFamily), "Dancing Script", "Verdana", "Arial";
 }
 
 p {
@@ -371,7 +372,7 @@ svg {
 #hero h1 {
   font-size: 3rem;
   font-weight: bolder;
-  font-family: "Bebas Neue", "Arial";
+  font-family: var(--fontFamily), "Bebas Neue", "Arial";
 }
 
 #hero p {

@@ -1,5 +1,5 @@
 /* Fonts and Variables */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:ital,wght@0,700;1,400&family=Cutive+Mono&family=Dancing+Script&family=Exo&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:ital,wght@0,700;1,400&family=Cutive+Mono&family=Poppins&family=Dancing+Script&family=Exo&family=Roboto:wght@100&display=swap');
 
 // $colorBG:linear-gradient(-30deg, hsl(200, 80%, 20%) 70%, hsl(340, 83%, 55%) 200%) no-repeat scroll 0 !default;
 
@@ -18,27 +18,35 @@
     --textColor: white;
     // --colorBody: linear-gradient(-30deg, hsla(var(--hue, 239), var(--sat, 40%), calc(var(--light, 42%) * var(--lightFactor, 1)), var(--alpha, 1)) 70%, hsla(var(--hue, 340), var(--sat, 83%), calc(var(--light, 55%) * var(--lightFactor, 1)), var(--alpha, 1)) 200%) no-repeat scroll 0 !default;
     --fontScale: 1;
+    --fontFamily: "Poppins", "Verdana";
 }
 
 
 // $colorBG:linear-gradient(-30deg, hsla(var(--hue, 239), var(--sat, 40%), calc(var(--light, 42%) * var(--lightFactor, 1)), var(--alpha, 1)) 70%, hsla(var(--hue, 340), var(--sat, 83%), calc(var(--light, 55%) * var(--lightFactor, 1)), var(--alpha, 1)) 200%) no-repeat scroll 0 !default;
 $color: var(--textColor, "#EFF");
-$fontFamily: "Exo",
-'Verdana';
+$fontFamily: var(--fontFamily),
+"Exo",
+"Verdana";
 // $fontHeading:'Bebas Neue','Comic Neue','Inter',"Play",'Verdana';
-$fonth1: 'Bebas Neue',
+$fonth1: var(--fontFamily),
+'Bebas Neue',
 'Arial';
-$fonth2: 'Verdana',
-'Arial';
-$fonth3: 'Comic Neue',
-'Arial';
-$fonth4: 'Bebas Neue',
+$fonth2: var(--fontFamily),
 'Verdana',
 'Arial';
-$fonth5: 'Dancing Script',
+$fonth3: var(--fontFamily),
+'Comic Neue',
+'Arial';
+$fonth4: var(--fontFamily),
+'Bebas Neue',
 'Verdana',
 'Arial';
-$fonth6: 'Dancing Script',
+$fonth5: var(--fontFamily),
+'Dancing Script',
+'Verdana',
+'Arial';
+$fonth6: var(--fontFamily),
+'Dancing Script',
 'Verdana',
 'Arial';
 $fontCode: 'Cutive Mono',

@@ -14,7 +14,7 @@
     </div>
 
     <script type="module" defer>
-        import "https://generatorjs.github.io/generatorjs.cdn/src/generator.modular.js"
+        import "./generatorjs.cdn/src/generator.modular.js"
         // import "./cdn/latest/generator.js"
 
 
@@ -26,8 +26,8 @@
         append(app, gen(footer, "appfooter", "Footer content", 'container'));
 
 
-	append(appmain, gen(section,"hero","","hero"))
-	
+        append(appmain, gen(section, "hero", "", "hero"))
+
         // load(["./header.js", "./script.js", "./footer.js","./style.css"])// load js and css files
         append(hero, [gen(h1, "", "Hello GeneratorJs"), gen(p, "", "Yes, just Three functions for frontend."), gen(span, "", ["gen", "append", "load"]), gen(p, "", "And Three Optional functions."), gen(span, "", ["log", "getfile", "loadscss"])])
 
@@ -35,7 +35,7 @@
 
         var siteStyleSCSS = `
         //some temp style in nested css/ scss format
-	//@import url('https://fonts.googleapis.com/css2?family=Finlandica:ital@1&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Finlandica:ital@1&display=swap');
         
         :root{
         --hue:200;
@@ -66,7 +66,7 @@
             font-family:var(--fontFamily),"arial","sans";
             padding:5px;
 
-            h1{
+            h1,h2{
                 padding-block:1em;
             }
             header{
@@ -100,10 +100,10 @@
             }
         }
         `
-        loadscss(siteStyleSCSS)
-        
-        
-        
+        console.log(loadscss(siteStyleSCSS))
+
+
+
         //loaddefaults()
     </script>
 

@@ -1,22 +1,24 @@
 /* Fonts and Variables */
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Comic+Neue:ital,wght@0,700;1,400&family=Cutive+Mono&family=Poppins&family=Dancing+Script&family=Exo&family=Roboto:wght@100&display=swap");
 :root {
-  --hue: 240;
-  --hueTwo: 200;
+  --hue: 235;
+  --sat: 70%;
+  --light: 12%;
   --hueAscent: 180;
   --satAscent: 100%;
-  --lightAscent: 60%;
-  --sat: 60%;
-  --light: 15%;
+  --lightAscent: 55%;
   --lightFactor: 1;
   --alpha: 1;
   --textColor: white;
   --fontScale: 1;
-  --fontFamily: "Poppins", "Verdana";
+  --fontFamily: Poppins;
+  --fontFallback: "Courier", "Courier New", "Lucida Console", Inconsolata, terminal, consolas, arial;
+  --textColor: white;
+  --colorScheme: light dark;
 }
 
 body {
-  background: hsl(var(--hue), var(--sat), calc(var(--light) * var(--lightFactor)));
+  background: var(--colorBody);
   text-shadow: var(--textShadow);
 }
 
@@ -34,8 +36,8 @@ body {
 }
 
 :root {
-  font-family: var(--fontFamily), "Exo", "Verdana";
-  color-scheme: var(--color-scheme, dark);
+  font-family: var(--fontFamily), var(--fontFallback, Arial);
+  color-scheme: var(--colorScheme, dark);
 }
 
 body {
@@ -43,46 +45,125 @@ body {
   overflow-x: hidden;
   --fontSize: calc(1rem * var(--fontScale, 1));
   font-size: var(--fontSize, 1rem);
-  text-shadow: 0.01em 0.01em 0.1em var(--textShadow);
+}
+
+#app {
+  --h: var(--hue, 210);
+  --s: calc(var(--sat, 69%) / var(--lightFactor));
+  --l: calc(var(--light, 15%) * var(--lightFactor));
+  --hTwo: calc(var(--h) - 30);
+  --a: var(--alpha, 1);
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  font-size: clamp(1em, 2vw, 1.2em);
+  background: linear-gradient(145deg, hsla(var(--h, 239), var(--s), var(--l), var(--a)) -10%, hsla(var(--hTwo), calc(var(--sat) / var(--lightFactor)), calc(var(--light) * var(--lightFactor)), var(--a)) 100%) no-repeat scroll 0;
+}
+
+#app #appmain {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: left;
+      -ms-flex-align: left;
+          align-items: left;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.container {
+  padding-inline: clamp(1em, 10vw, 15%);
+}
+
+section,
+.section {
+  min-height: 80vh;
+  overflow-x: auto;
+}
+
+.section {
+  padding-top: 10em;
+  padding-bottom: 10em;
+}
+
+.section-small {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+.section {
+  padding-block: clamp(4em, 15vh, 15em);
+  --a: .1;
+  background-color: hsla(var(--h), var(--sec-sat), var(--sec-light), var(--a));
+}
+
+.section:nth-child(even) {
+  --sec-sat: calc(var(--s) * 1.2);
+  --sec-light: calc(var(--l) * .8);
+}
+
+.section:nth-child(odd) {
+  --sec-sat: calc(var(--s) * .8);
+  --sec-light: calc(var(--l) * 1.2);
 }
 
 a {
-  color: #ddd;
+  color: var(--linkcolor, aqua);
 }
 
 button,
 .button {
+  --h: var(--hueAscent, 180);
+  --s: var(--satAscent, 80%);
+  --l: var(--lightAscent, 60%);
   position: relative;
   font-weight: 500;
   display: inline-block;
-  outline: 0.2em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
-  padding: .5em;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(10%, hsl(var(--hueAscent), var(--lightAscent), 42%)), color-stop(80%, hsl(var(--hueAscent), var(--lightAscent), 60%)), to(hsl(var(--hueAscent), var(--lightAscent), 32%))) no-repeat scroll 0;
-  background: linear-gradient(0deg, hsl(var(--hueAscent), var(--lightAscent), 42%) 10%, hsl(var(--hueAscent), var(--lightAscent), 60%) 80%, hsl(var(--hueAscent), var(--lightAscent), 32%) 100%) no-repeat scroll 0;
-  color: #0b4c65;
+  border: 0.2em solid hsl(var(--h), var(--s), var(--l));
+  padding: .3em .5em;
+  background: hsl(var(--h), var(--s), var(--l));
+  color: hsl(calc(180 + var(--h)), calc(100% - var(--s)), calc(100% - var(--l)));
   text-align: center;
   text-shadow: none;
   margin: 2em;
   margin-left: 0;
   text-transform: capitalize;
   border-radius: .01em;
+  text-shadow: .5px .5px 1px black;
 }
 
 button:hover,
 .button:hover {
-  outline: 0.1em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
-  -webkit-box-shadow: 0px 0px 0.5em hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
-          box-shadow: 0px 0px 0.5em hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
+  outline: 0.1em solid hsl(var(--h), var(--s), var(--l));
+  -webkit-box-shadow: 0px 0px 0.5em hsl(var(--h), var(--s), var(--l));
+          box-shadow: 0px 0px 0.5em hsl(var(--h), var(--s), var(--l));
 }
 
 .button-blank {
+  --h: var(--hueAscent, 180);
+  --s: var(--satAscent, 80%);
+  --l: var(--lightAscent, 60%);
+  --a: .1;
   position: relative;
   font-weight: 500;
   display: inline-block;
-  outline: 0.2em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
-  padding: .5em;
-  background: rgba(1, 1, 1, 0.1);
-  color: hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
+  border: 0.2em solid hsl(var(--h), var(--s), var(--l));
+  padding: .3em .5em;
+  background: hsla(var(--h), var(--s), var(--l), var(--a, 0.01));
+  color: hsl(var(--h), var(--s), var(--l));
   text-align: center;
   text-shadow: none;
   margin: 2em;
@@ -92,9 +173,22 @@ button:hover,
 }
 
 .button-blank:hover {
-  outline: 0.1em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
-  -webkit-box-shadow: 0px 0px 0.5em hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
-          box-shadow: 0px 0px 0.5em hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
+  outline: 0.1em solid hsl(var(--h), var(--s), var(--l));
+  -webkit-box-shadow: 0px 0px 0.5em hsl(var(--h), var(--s), var(--l));
+          box-shadow: 0px 0px 0.5em hsl(var(--h), var(--s), var(--l));
+}
+
+code,
+pre {
+  padding: 1em 2em;
+  margin: 1em;
+  max-width: 70em;
+  font-family: "Courier", "Courier New", "Lucida Console", arial;
+  -webkit-hyphens: auto;
+      -ms-hyphens: auto;
+          hyphens: auto;
+  word-wrap: break-word;
+  word-break: break-all;
 }
 
 h1 {
@@ -182,76 +276,6 @@ video {
   margin-bottom: 10%;
 }
 
-#app {
-  --h: var(--hue, 200);
-  --s: calc(var(--sat) / var(--lightFactor));
-  --l: calc(var(--light) * var(--lightFactor));
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  font-size: clamp(1em, 2vw, 1.2em);
-  background: linear-gradient(-30deg, hsla(var(--hue, 239), var(--s), var(--l), var(--alpha)) -10%, hsla(var(--hueTwo), calc(var(--sat) / var(--lightFactor)), calc(var(--light) * var(--lightFactor)), 1) 100%) no-repeat scroll 0;
-}
-
-#app #appmain {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: left;
-      -ms-flex-align: left;
-          align-items: left;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.container {
-  padding-inline: clamp(1em, 10vw, 15%);
-}
-
-section,
-.section {
-  min-height: 80vh;
-}
-
-.section {
-  padding-top: 10em;
-  padding-bottom: 10em;
-}
-
-.section-small {
-  margin-top: 2em;
-  margin-bottom: 2em;
-  padding-top: 5em;
-  padding-bottom: 5em;
-}
-
-.section {
-  padding-block: clamp(4em, 15vh, 15em);
-  --a: .1;
-  background-color: hsla(var(--h), var(--sec-sat), var(--sec-light), var(--a));
-}
-
-.section:nth-child(even) {
-  --sec-sat: calc(var(--s) * 1.2);
-  --sec-light: calc(var(--l) * .8);
-}
-
-.section:nth-child(odd) {
-  --sec-sat: calc(var(--s) * .8);
-  --sec-light: calc(var(--l) * 1.2);
-}
-
 ol {
   list-style: none;
   counter-reset: item;
@@ -266,7 +290,7 @@ ol li:before {
   font-size: small;
   margin-right: 10px;
   content: counter(item);
-  background: hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
+  background: hsl(var(--hueAscent), var(--satAscent), var(--lightAscent));
   border-radius: 100%;
   color: #222222;
   padding: .1em;
@@ -380,46 +404,6 @@ svg {
   font-size: large;
   line-height: 1.8em;
   font-weight: 500;
-}
-
-pre,
-code,
-.code {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  position: relative;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  background-color: hsla(0, 0%, calc(100% * var(--lightFactor)), 0.2);
-  padding: 1em;
-  margin: 2em;
-  border-radius: .5em;
-  resize: both;
-  max-width: 70em;
-  font-family: "Cutive Mono", "Arial";
-  font-size: 1rem;
-  -webkit-hyphens: auto;
-      -ms-hyphens: auto;
-          hyphens: auto;
-}
-
-pre:hover:after,
-code:hover:after,
-.code:hover:after {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  content: 'click to copy';
-  font-size: smaller;
-  font-weight: 100;
-  background-color: rgba(165, 165, 165, 0.2);
-  border-radius: 5px;
-  z-index: 0;
 }
 
 .small {

@@ -14,8 +14,9 @@
 }
 
 :root {
-    font-family: $fontFamily;
-    color-scheme: var(--color-scheme, dark);
+    font-family: var(--fontFamily), var(--fontFallback, Arial);
+    color-scheme: var(--colorScheme, dark);
+
 
 }
 
@@ -25,36 +26,112 @@ body {
     overflow-x: hidden;
     --fontSize: calc(1rem * var(--fontScale, 1));
     font-size: var(--fontSize, 1rem);
-    text-shadow: .01em .01em .1em var(--textShadow);
+    // text-shadow: .01em .01em .1em var(--textShadow, black);
     // background-color: red;
+}
+
+
+#app {
+    --h: var(--hue, 210);
+    --s: calc(var(--sat, 69%) / var(--lightFactor));
+    --l: calc(var(--light, 15%) * var(--lightFactor));
+    --hTwo: calc(var(--h) - 30);
+    --a: var(--alpha, 1);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    // --fontSize: calc(clamp(1em, 2vw, 1.2em) * var(--fontScale));
+    // font-size: var(--fontSize);
+    font-size: clamp(1em, 2vw, 1.2em);
+    background: linear-gradient(--145deg, hsla(var(--h, 239), var(--s), var(--l), var(--a)) -10%, hsla(var(--hTwo), calc(var(--sat) / var(--lightFactor)), calc(var(--light) * var(--lightFactor)), var(--a)) 100%) no-repeat scroll 0;
+
+
+    #appmain {
+
+        position: relative;
+
+        display: flex;
+        align-items: left;
+        flex-direction: column;
+
+    }
+
+}
+
+.container {
+    padding-inline: clamp(1em, 10vw, 15%);
+}
+
+section,
+.section {
+    min-height: 80vh;
+    overflow-x: auto;
+}
+
+.section {
+    padding-top: 10em;
+    padding-bottom: 10em;
+
+    &-small {
+
+        margin-top: 2em;
+        margin-bottom: 2em;
+        padding-top: 5em;
+        padding-bottom: 5em;
+    }
+}
+
+
+
+.section {
+    padding-block: clamp(4em, 15vh, 15em);
+    --a: .1;
+    background-color: hsla(var(--h), var(--sec-sat), var(--sec-light), var(--a));
+
+    &:nth-child(even) {
+        --sec-sat: calc(var(--s) * 1.2);
+        --sec-light: calc(var(--l) * .8);
+    }
+
+    &:nth-child(odd) {
+        --sec-sat: calc(var(--s) * .8);
+        --sec-light: calc(var(--l) * 1.2);
+    }
 }
 
 
 
 a {
-    color: $linkcolor;
+    color: var(--linkcolor, aqua);
 }
 
 button,
 .button {
+    --h: var(--hueAscent, 180);
+    --s: var(--satAscent, 80%);
+    --l: var(--lightAscent, 60%);
     position: relative;
     font-weight: 500;
     display: inline-block;
-    outline: .2em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
-    padding: .5em;
-    background: $colorButton;
-    color: $colorButtonText;
+    // outline: .1em solid hsl(var(--h), var(--s), var(--l));
+
+    border: .2em solid hsl(var(--h), var(--s), var(--l));
+    padding: .3em .5em;
+    background: hsl(var(--h), var(--s), var(--l));
+    color: hsl(calc(180 + var(--h)), calc(100% - var(--s)), calc(100% - var(--l)));
     text-align: center;
     text-shadow: none;
     margin: 2em;
     margin-left: 0;
     text-transform: capitalize;
     border-radius: .01em;
+    text-shadow: .5px .5px 1px black;
 
 
     &:hover {
-        outline: 0.1em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
-        box-shadow: 0px 0px .5em hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
+        outline: 0.1em solid hsl(var(--h), var(--s), var(--l));
+        box-shadow: 0px 0px .5em hsl(var(--h), var(--s), var(--l));
     }
 
 
@@ -62,13 +139,17 @@ button,
 }
 
 .button-blank {
+    --h: var(--hueAscent, 180);
+    --s: var(--satAscent, 80%);
+    --l: var(--lightAscent, 60%);
+    --a: .1;
     position: relative;
     font-weight: 500;
     display: inline-block;
-    outline: .2em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
-    padding: .5em;
-    background: rgba(1, 1, 1, 0.1);
-    color: hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
+    border: .2em solid hsl(var(--h), var(--s), var(--l));
+    padding: .3em .5em;
+    background: hsla(var(--h), var(--s), var(--l), var(--a, .01));
+    color: hsl(var(--h), var(--s), var(--l));
     text-align: center;
     text-shadow: none;
     margin: 2em;
@@ -77,9 +158,31 @@ button,
     border-radius: .01em;
 
     &:hover {
-        outline: 0.1em solid hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
-        box-shadow: 0px 0px .5em hsl(var(--hueAscent), var(--lightAscent), var(--lightAscent));
+        outline: 0.1em solid hsl(var(--h), var(--s), var(--l));
+        box-shadow: 0px 0px .5em hsl(var(--h), var(--s), var(--l));
     }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+code,
+pre {
+    padding: 1em 2em;
+    margin: 1em;
+    max-width: 70em;
+    font-family: "Courier", "Courier New", "Lucida Console", arial;
+    hyphens: auto;
+    word-wrap: break-word;
+    word-break: break-all;
 }
 
 h1 {
@@ -188,73 +291,6 @@ video {
 
 }
 
-
-
-#app {
-    --h: var(--hue, 200);
-    --s: calc(var(--sat) / var(--lightFactor));
-    --l: calc(var(--light) * var(--lightFactor));
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    // --fontSize: calc(clamp(1em, 2vw, 1.2em) * var(--fontScale));
-    // font-size: var(--fontSize);
-    font-size: clamp(1em, 2vw, 1.2em);
-    background: linear-gradient(-30deg, hsla(var(--hue, 239), var(--s), var(--l), var(--alpha)) -10%, hsla(var(--hueTwo), calc(var(--sat) / var(--lightFactor)), calc(var(--light) * var(--lightFactor)), 1) 100%) no-repeat scroll 0;
-
-
-    #appmain {
-
-        position: relative;
-
-        display: flex;
-        align-items: left;
-        flex-direction: column;
-
-    }
-
-}
-
-.container {
-    padding-inline: clamp(1em, 10vw, 15%);
-}
-
-section,
-.section {
-    min-height: 80vh;
-}
-
-.section {
-    padding-top: 10em;
-    padding-bottom: 10em;
-
-    &-small {
-
-        margin-top: 2em;
-        margin-bottom: 2em;
-        padding-top: 5em;
-        padding-bottom: 5em;
-    }
-}
-
-
-
-.section {
-    padding-block: clamp(4em, 15vh, 15em);
-    --a: .1;
-    background-color: hsla(var(--h), var(--sec-sat), var(--sec-light), var(--a));
-
-    &:nth-child(even) {
-        --sec-sat: calc(var(--s) * 1.2);
-        --sec-light: calc(var(--l) * .8);
-    }
-
-    &:nth-child(odd) {
-        --sec-sat: calc(var(--s) * .8);
-        --sec-light: calc(var(--l) * 1.2);
-    }
-}
 
 
 

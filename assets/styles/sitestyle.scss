@@ -94,38 +94,40 @@
     }
 }
 
-pre,
-code,
-.code {
-    display: flex;
-    position: relative;
-    flex-direction: column;
-    flex-wrap: wrap;
-    background-color: hsla(0, 0%, calc(100% * var(--lightFactor)), .2);
-    padding: 1em;
-    margin: 2em;
-    border-radius: .5em;
-    resize: both;
-    max-width: 70em;
-    font-family: $fontCode;
-    font-size: 1rem;
-    hyphens: auto;
+// pre,
+// code,
+// .code {
+//     display: flex;
+//     position: relative;
+//     flex-direction: column;
+//     flex-wrap: wrap;
+//     background-color: hsla(0, 0%, calc(100% * var(--lightFactor)), .2);
+//     padding: 1em;
+//     margin: 2em;
+//     border-radius: .5em;
+//     resize: both;
+//     max-width: 70em;
+//     font-family: $fontCode;
+//     font-size: 1rem;
+//     hyphens: auto;
+//     word-wrap: break-word;
+//     word-break: break-all;
 
-    &:hover {
-        &:after {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            content: 'click to copy';
-            font-size: smaller;
-            font-weight: 100;
-            background-color: rgba(165, 165, 165, 0.2);
-            border-radius: 5px;
-            z-index: 0;
-        }
-    }
+//     &:hover {
+//         &:after {
+//             position: absolute;
+//             bottom: 0;
+//             right: 0;
+//             content: 'click to copy';
+//             font-size: smaller;
+//             font-weight: 100;
+//             background-color: rgba(165, 165, 165, 0.2);
+//             border-radius: 5px;
+//             z-index: 0;
+//         }
+//     }
 
-}
+// }
 
 .small {
     font-size: small;

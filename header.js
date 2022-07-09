@@ -6,7 +6,7 @@ function loadHeader() {
     append(appheader, gen("span", "title"));
     append(title,
         [
-            gen("span", "logo", gen("img", "sitelogo", "", "sitelogo", { "src": site.logo, "width": "30px" })),
+            gen("span", "logo", gen("img", "sitelogo", "", "sitelogo", { "src": site.logo })),
             gen("span", "siteheading")
         ]
     );
@@ -20,7 +20,7 @@ function loadHeader() {
     document.getElementById('navmenu').style.visibility = 'hidden'
 
     var ham = "&#9776"
-    append(appnav, gen("label", 'navmenulabel', "", "", { "for": "navmenu" }));
+    append(appnav, gen("label", 'navmenulabel', "", "", { "for": "navmenu", "title": "menu" }));
     append(navmenulabel, gen(span, '', '', 'ham1'))
     append(navmenulabel, gen(span, '', '', 'ham2'))
     append(navmenulabel, gen(span, '', '', 'ham3'));
@@ -72,16 +72,14 @@ document.title = site.title
 
 var headerStyle = `
 .header {
-    
     position: sticky;
     top: 0px;
     display: flex;
     flex-direction: row;
-    // min-height: 3em;
     justify-content: space-between;
     background-color: hsla(233, 76%, 6%,1);
     color:white;
-    box-shadow: 0px 2px 3px hsla(var(--hueAscent),var(--lightAscent),var(--lightAscent),.8);
+    box-shadow: 0px 2px 3px hsla(var(--hueAscent,180),var(--satAscent,60%),var(--lightAscent,50%),.8);
     z-index: 20;
     padding: 2px;
     padding-left: 20px;
@@ -89,20 +87,24 @@ var headerStyle = `
 
     
     &:hover {
-        box-shadow: 0px 3px 4px hsl(var(--hueAscent),var(--lightAscent),var(--lightAscent));
+        box-shadow: 0px 3px 4px hsl(var(--hueAscent,180),var(--satAscent,60%),var(--lightAscent,50%));
     }
 
     #logo{
     margin-block:auto;
-    img {
-        max-width: 40px;
-        &:hover {
-            padding:calc(inherit + 2em );
-            margin:calc(inherit - 2em );
-            filter:drop-shadow(1px 2px .5px rgba(0, 0, 0, .8));
-            transform: scaleX(10) scaleY(10) translateX(50%) translateY(50%);
+        img {
+            --logoWidth:55px;
+            max-width:var(--logoWidth);
+            transition: all 300ms ease-in;
+            object-fit:contain;
+            &:hover {
+                padding:calc(inherit + 20px );
+                margin:calc(inherit - 20px );
+
+                filter: drop-shadow( -.1px -.1px .1px rgba(255, 255, 255, .8)) drop-shadow(1px 1px .1px rgba(0, 0, 0, .8));
+                transform: scaleX(6) scaleY(6) translateX(50%) translateY(50%);
+            }
         }
-    }
     }
 
     #title {
@@ -115,7 +117,7 @@ var headerStyle = `
 
             #sitetitle {
 
-                font-size: 1.2rem;
+                font-size: 25px;
                 font-weight: 900;
                 text-transform: uppercase;
                 padding-left: 5px;
@@ -126,7 +128,7 @@ var headerStyle = `
             }
 
             #sitesubtitle {
-                font-size: .8rem;
+                font-size: 12px;
                 font-weight: 200;
                 text-transform: capitalize;
                 padding-left: 5px;
@@ -153,7 +155,7 @@ var headerStyle = `
             li {
     
                 text-transform: capitalize;
-                font-size: .8rem;
+                font-size: 14px;
                 font-weight: 700;
                 text-decoration: none;
                 color: white;
@@ -178,14 +180,15 @@ var headerStyle = `
 
     #navmenulabel {
 
-        position: absolute;
-        top: 10px;
-        right: 5px;
+        position: relative;
+        // top: 10px;
+        // right: 5px;
         flex-direction: column;
 
         height: 20px;
         width: 25px;
-        margin: .5em;
+        margin:  5px;
+        margin-block:auto;
         transition: all 200ms ease-in-out;
 
 
@@ -250,7 +253,7 @@ var headerStyle = `
     #navul {
         display: grid;
         grid-auto-flow: row;
-        grid-gap: 1em;
+        grid-gap: 10px;
         position: fixed;
         top: 0px;
         left: 0px;
@@ -263,15 +266,7 @@ var headerStyle = `
         box-shadow: 2px 2px 2px hsla(0, 0%, 50%, 0.8);
 
 
-        // &:before{
-        //     position: absolute;
-        //     top: 0px;
-        //     content:"hi"
-        //     width:10em;
-        //     height:10em;
-        //     background-color: hsla(219, 72%, 15%, .99);
-        //     transform:rotateZ(45deg);
-        // }
+        
 
         li {
 
@@ -283,7 +278,7 @@ var headerStyle = `
                 height: 100%;
                 text-transform: uppercase;
                 border-radius: 5px;
-                padding:2em;
+                padding:20px;
 
                 &:hover {
                     background-color: hsla(240, 72%, 10%, .5);

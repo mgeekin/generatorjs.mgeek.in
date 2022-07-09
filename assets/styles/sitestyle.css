@@ -14,7 +14,7 @@
   --fontFamily: Poppins;
   --fontFallback: "Courier", "Courier New", "Lucida Console", Inconsolata, terminal, consolas, arial;
   --textColor: white;
-  --colorScheme: light dark;
+  --colorScheme: normal;
 }
 
 body {
@@ -37,7 +37,7 @@ body {
 
 :root {
   font-family: var(--fontFamily), var(--fontFallback, Arial);
-  color-scheme: var(--colorScheme, dark);
+  color-scheme: var(--colorScheme, normal);
 }
 
 body {
@@ -45,6 +45,7 @@ body {
   overflow-x: hidden;
   --fontSize: calc(1rem * var(--fontScale, 1));
   font-size: var(--fontSize, 1rem);
+  color: var(--textColor, white);
 }
 
 #app {
@@ -394,14 +395,14 @@ svg {
 }
 
 #hero h1 {
-  font-size: 3rem;
+  font-size: 3em;
   font-weight: bolder;
   font-family: var(--fontFamily), "Bebas Neue", "Arial";
 }
 
 #hero p {
   padding: 1em;
-  font-size: large;
+  font-size: 1.2em;
   line-height: 1.8em;
   font-weight: 500;
 }

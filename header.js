@@ -158,12 +158,12 @@ var headerStyle = `
                 font-size: 14px;
                 font-weight: 700;
                 text-decoration: none;
-                color: white;
+              
     
                 a {
                     padding-left: 5px;
                     padding-right: 5px;
-    
+                    color: white;
                     &:hover {
                         color: hsl(var(--hueAscent),var(--lightAscent),var(--lightAscent));
                     }

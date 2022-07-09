@@ -16,7 +16,8 @@ var s = site
 const social = [
     { tag: 'a', id: 'fb', innerHTML: 'Facebook', href: "https://facebook.com/mGeek.in", target: "_blank", classList: 'sociallinks' },
     { tag: 'a', id: 'tg', innerHTML: 'Telegram', href: "https://t.me/mGeek", target: "_blank", classList: 'sociallinks' },
-    { tag: 'a', id: 'git', innerHTML: 'Github', href: "https://github.com/mgeekin/generatorjs", target: "_blank", classList: 'sociallinks' }
+    { tag: 'a', id: 'git', innerHTML: 'Github', href: "https://github.com/GeneratorJs/generatorjs.cdn.git", target: "_blank", classList: 'sociallinks' },
+    { tag: 'a', id: 'mail', innerHTML: 'Email', href: `mailto:care@mgeek.in?subject=Related to GeneratorJs&body=From : ${window.location.href}`, target: "_blank", classList: 'sociallinks' }
 ]
 export { s as site }
 export { social as social }

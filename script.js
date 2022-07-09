@@ -49,24 +49,7 @@ append(install, gen(div, "singlefile", gen(h2, "", "Template index.html")))
 
 
 
-var singlehtmlcode = getfile("https://generatorjs.github.io/starter.html");
-singlehtmlcode.then(singlehtmlcode => {
-    append(singlefile, gen(code, 'singlefilecode', singlehtmlcode, 'code,small'))
-})
-
-
-// let singlehtmlcode = new Promise(function (resolve, reject) {
-//     var res = getfile("https://generatorjs.github.io/starter.html");
-//     resolve(res);
-//     // reject(error);
-
-// }).then(
-//     function (value) { /* code if some error */
-//         append(singlefile, gen(code, 'singlefilecode', value, 'code,small'))
-//     },
-//     function (error) { console.error(error) }
-// );
-
+getfile("https://generatorjs.github.io/starter.html", (resp) => { append(singlefile, gen(code, 'singlefilecode', resp, 'code,small')) });
 
 
 append(appmain, gen(section, "instructions", gen(h1, "", "Instructions"), 'section container'))

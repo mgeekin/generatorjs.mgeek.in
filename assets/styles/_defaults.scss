@@ -15,7 +15,7 @@
 
 :root {
     font-family: var(--fontFamily), var(--fontFallback, Arial);
-    color-scheme: var(--colorScheme, dark);
+    color-scheme: var(--colorScheme, normal);
 
 
 }
@@ -28,6 +28,7 @@ body {
     font-size: var(--fontSize, 1rem);
     // text-shadow: .01em .01em .1em var(--textShadow, black);
     // background-color: red;
+    color: var(--textColor, white)
 }
 
 

@@ -114,13 +114,15 @@
     <app id="app">
     </app>
 
-    <script type="module">
-        window.DEBUG = 1;
+    <!-- <script src="https://generatorjs.github.io/generatorjs.cdn/generator.js"></script> -->
+    <!-- <script src="https://generatorjs.github.io/generatorjs.cdn/generatorWebHelper.js"></script> -->
+    <script src="./generatorjs.cdn/generator.js"></script>
+    <script src="./generatorjs.cdn/generatorWebHelper.js"></script>
+    <script defer>
+        window.$ = GeneratorJs()
+        $.init()//append,gen,load,cssvar,getfile,log
+        window.DEBUG = 0;
         if (window.DEBUG == 1) document.getElementById("preloader").style.zIndex = -1000;
-        // import "https://generatorjs.github.io/generatorjs.cdn/dist/latest/generator.modular.js"
-        // import "./generatorjs.cdn/dist/latest/generator.modular.js"
-        import "./generatorjs.cdn/src/generator.modular.js"
-        import { site, social } from "./defaults.js"; // stores site and social dict // import { gen, append,
 
         //your app logic
         append(app, "", "over") /* reset app */
@@ -128,31 +130,13 @@
         append(app, gen(main, "appmain", 'main', 'appmain'));
         append(app, gen(footer, "appfooter", "", ''));
 
-        // append(appmain, gen(div, "customizer", 'customizer', 'customizer')) // 
-        // append(app, gen(sidebar, "appsidebar", 'rightsidebar pagenav', 'sidebar,pagenav,sidebar-right'));
-        // load(["./assets/styles/sitestyle.css", "./header.js", "./script.js", "./footer.js"])//append elements        to header footer and main section 
-        load(["./header.js", "./script.js", "./footer.js"])
-
-
-        loaddefaults()
-
-
-
+        //more app logic
+        load("./index.js")
         setTimeout(() => {
-            for (i = 0; i < 100; i++) {
-                setTimeout(() => {
-                    var x = cssvar("--loaded");
-                    cssvar("--loaded", i)
-                }, 100)
-            }
-            document.getElementById("preloader").style.opacity = 0;
-            setTimeout(() => {
-                document.getElementById("preloader").style.zIndex = -1000;
-                document.getElementById("preloader").style.display = 'none';
-            }, 1000)
-        }, 2000)
+            GeneratorWebHelper().init()
+        }, 3000)
+        // $$.loadCustomizer()
     </script>
-
 
 </body>
 

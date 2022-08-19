@@ -131,6 +131,8 @@
         append(app, gen(footer, "appfooter", "", ''));
 
         //more app logic
+        load(["./defaults.js"])
+
         load("./index.js")
         setTimeout(() => {
             GeneratorWebHelper().init()

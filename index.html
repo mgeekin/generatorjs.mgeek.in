@@ -102,7 +102,8 @@
 
         }
     </style>
-    <link rel="stylesheet" href="./assets/styles/sitestyle.css">
+    <!-- <link rel="stylesheet" href="./assets/styles/sitestyle.css"> -->
+
     <!-- <style link="./assets/styles/sitestyle.css" rel="sitestyle"></style> -->
 </head>
 
@@ -111,18 +112,23 @@
         <div id="ring" class="ring"></div>
         <span class="preloader-progress"></span>
     </div>
-    <app id="app">
-    </app>
+    <div id="app">
+    </div>
 
     <!-- <script src="https://generatorjs.github.io/generatorjs.cdn/generator.js"></script> -->
     <!-- <script src="https://generatorjs.github.io/generatorjs.cdn/generatorWebHelper.js"></script> -->
     <script src="./generatorjs.cdn/generator.js"></script>
     <script src="./generatorjs.cdn/generatorWebHelper.js"></script>
     <script defer>
+        window.DEBUG = 1;
         window.$ = GeneratorJs()
         $.init()//append,gen,load,cssvar,getfile,log
-        window.DEBUG = 0;
-        if (window.DEBUG == 1) document.getElementById("preloader").style.zIndex = -1000;
+
+        if (window.DEBUG == 1) {
+            sessionStorage.clear()
+            localStorage.clear()
+            document.getElementById("preloader").style.zIndex = -1000;
+        }
 
         //your app logic
         append(app, "", "over") /* reset app */
@@ -131,9 +137,7 @@
         append(app, gen(footer, "appfooter", "", ''));
 
         //more app logic
-        load(["./defaults.js"])
-
-        load("./index.js")
+        load(["./defaults.js", "./index.js", "./assets/styles/sitestyle.scss"])
         setTimeout(() => {
             GeneratorWebHelper().init()
         }, 3000)

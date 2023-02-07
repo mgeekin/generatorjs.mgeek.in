@@ -1,3 +1,4 @@
+//MAIN sitestyle.scss
 @import "./variables";
 @import "./defaults";
 // @import "./header";
@@ -83,7 +84,7 @@
     h1 {
         font-size: 3em;
         font-weight: bolder;
-        font-family: $fonth1;
+        font-family: var(--dollarfonth1);
     }
 
     p {

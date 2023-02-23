@@ -16,8 +16,6 @@
 :root {
     font-family: var(--fontFamily,'Open-sans'), var(--fontFallback, Arial);
     color-scheme: var(--colorScheme, normal);
-
-
 }
 
 body {
@@ -25,7 +23,8 @@ body {
     overflow-x: hidden;
     --fontSize: calc(1rem * var(--fontScale, 1));
     font-size: var(--fontSize, 1rem);
-    color: var(--textColor, white)
+    color: var(--textColor, white);
+
 }
 
 

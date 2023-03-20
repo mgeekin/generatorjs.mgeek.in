@@ -13,11 +13,15 @@
 
     </div>
 
-    <script type="module" defer>
-        import "./generatorjs.cdn/src/generator.modular.js"
-        // import "./cdn/latest/generator.js"
 
+    <script src="generatorjs.cdn/generator.js"></script>
+    <!-- <script type="module" defer> -->
+    <!-- import "./generatorjs.cdn/src/generator.modular.js" -->
+    <!-- // import "./cdn/latest/generator.js" -->
 
+    <script>
+        $ = GeneratorJs()
+        $.init()
 
         //your app logic
         append(app, "", "over") /* reset app */
@@ -100,13 +104,111 @@
             }
         }
         `
-        console.log(loadscss(siteStyleSCSS))
+        loadscss(siteStyleSCSS)
 
 
 
-        loaddefaults()
+
+
+        var md = function () {/*
+            
+heading with ====
+======
+
+heading with ----
+------
+
+
+paragraph with reference like[^1]
+asdf
+sdfasdfsdf[^second]
+sdfasfsadf
+
+---
+
+[^1]: this is a reference
+[^second]: this is a reference
+
+
+
+# Hello GeneratorJs
+## Yes, just Three functions for frontend.
+```python
+
+print(f)
+
+
+```
+
+~~strikethrough~~
+~~strike
+
+multiline
+
+through~~
+
+~~strikethrough~~
+
+`inlinecode sdfsdf sfsfdasf`
+
+
+> blockquote
+
+> blockquote paragraph asdfasdflkjas;d lsflkjas ;flskajf as fsadf
+> asdfasdlfkj as
+
+*this* is a test of the **markdown** parser.
+
+
+
+
+
+***bold italic***
+
+
+1. list item 1 dfhfdh
+
+2. fjfghj
+
+
+
+1. list item 2
+1. list item 3
+1. list item 4
+
+* list item 1
+* list item 2
+* list item 3
+* list item 4
+
+
+
+1. list item 1
+1. list item 2
+1. list item 3
+1. list item 4
+
+
+
+[is a link](#home) is a link
+
+![Generator Logo](https://generatorjs.mgeek.in/assets/img/logo.png)
+
+
+                    */}.toString().slice(15, -3)
+
+
+        res = parsemd(md)
+        <!-- console.log(res) -->
+        append(".appmain", gen(div, "md", gen(h1, "", "Parsed with MD")), 'before')
+
+        append(appmain, res, "over")
     </script>
+    <script>
 
+
+
+    </script>
 </body>
 
 </html>

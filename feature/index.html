@@ -122,12 +122,26 @@ heading with ====
 heading with ----
 ------
 
+```javascript
+var a= 10;
+```
 
+```python
+a=10
+
+print(a)
+b=a**2
+
+```
 paragraph with reference like[^1]
-asdf
+asdf $E=mc^2$ \(E=mc^2\)
 sdfasdfsdf[^second]
-sdfasfsadf
+sdfasfsadf \(\vec{F}=m\vec{a}\)
 
+
+$$E=mc^2$$
+
+\[\vec{F}=m\vec{a}\]
 ---
 
 [^1]: this is a reference
@@ -137,6 +151,7 @@ sdfasfsadf
 
 # Hello GeneratorJs
 ## Yes, just Three functions for frontend.
+
 ```python
 
 print(f)
@@ -208,11 +223,30 @@ through~~
 
         append(appmain, res, "over")
     </script>
-    <script>
+    <!-- MathJax -->
 
-
-
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+            < script type = "text/x-mathjax-config" >
+                MathJax.Hub.Config({
+                    extensions: ["tex2jax.js"],
+                    jax: ["input/TeX", "output/HTML-CSS"],
+                    tex2jax: {
+                        inlineMath: [['$', '$'], ["\\(", "\\)"]],
+                        displayMath: [['$$', '$$'], ["\\[", "\\]"]],
+                        processEscapes: true
+                    },
+                    "HTML-CSS": { fonts: ["TeX"] }
+                });
     </script>
+    </script>
+
+    <!-- highlighter -->
+    <script>
+        load(["cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css", "//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"])
+        setTimeout(hljs.highlightAll(), 1000)
+    </script>
+
 </body>
 
 </html>

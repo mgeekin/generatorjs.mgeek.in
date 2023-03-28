@@ -103,16 +103,124 @@
                 padding-inline:2em;
             }
         }
+
+
+table{
+    position:relative;
+    display: block;
+    width:90%;
+    padding:.5em;
+    margin:2em;
+    margin-inline:auto;
+    box-shadow:0 0 5px var(--testShadow,black);
+    overflow:auto;
+    
+    thead,td:nth-child(1){
+        position:sticky;
+        top:0;
+        left:0
+    }
+    thead{margin-bottom:.2em;
+        tr{
+            <!-- background-color:hsla(var(--hue,0),40%,35%,.15); -->
+        }
+    }
+    thead,tbody{
+        width:100%;
+        
+        display:flex;
+        flex-direction:column;
+    }
+    tr{
+        display:flex;
+        flex-direction:row;
+        flex-grow:1;
+        padding:.2em;
+        td{
+            width:100%;
+            padding:.2em;
+            text-align:center;
+            background:red;
+            background-color:hsla(var(--hue,0),60%,5%,.1);
+
+            &:nth-child(even){
+                background-color:hsla(var(--hue,0),60%,5%,.1);
+            }
+            &:hover{
+                background-color:hsla(var(--hue,0),60%,45%,.2);
+            }
+
+     
+        }
+
+   
+        &:nth-child(even){
+            background-color:hsla(var(--hue,0),40%,35%,.15);
+        } 
+
+        &:hover{
+            background-color:hsla(var(--hue,0),60%,45%,.2);
+        }
+    }
+}
         `
         loadscss(siteStyleSCSS)
 
 
+        var temp = `|3|adf|gfg|asdf|3|adf|gfg|asdf|
+
+
+
+
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+
+
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+`
 
 
 
         var md = function () {/*
             
+|S.No|Name|Age|Sex|Contact|
+|:---:|:---:|:---:|:---:|---|
+|1|Prateek|35|Male|9151abcacb|
+|2|NA|28| Female|na|
 
+
+|S.No|Name|Age|Sex|Contact|
+|:---:|:---:|:---:|:---:|---|
+|1|Raj|32|Male|9889--------|
+|2|NA|25| Female|na|
+
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|:---:|:---:|:---:|:---:|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|3|adf|gfg|asdf|3|adf|gfg|asdf|
 
         *bold*
         **italic**
@@ -226,7 +334,7 @@ through~~
 
 
         res = parsemd(md)
-        <!-- console.log(res) -->
+
         append(".appmain", gen(div, "md", gen(h1, "", "Parsed with MD")), 'before')
 
         append(appmain, res, "over")

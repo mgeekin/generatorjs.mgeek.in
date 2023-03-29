@@ -116,20 +116,13 @@ table{
     overflow:auto;
     
     thead,td:nth-child(1){
-        position:sticky;
-        top:0;
-        left:0
-    }
-    thead{margin-bottom:.2em;
-        tr{
-            <!-- background-color:hsla(var(--hue,0),40%,35%,.15); -->
-        }
+        position:relative;
     }
     thead,tbody{
         width:100%;
-        
         display:flex;
         flex-direction:column;
+        
     }
     tr{
         display:flex;
@@ -137,9 +130,9 @@ table{
         flex-grow:1;
         padding:.2em;
         td{
+            text-align:center;
             width:100%;
             padding:.2em;
-            text-align:center;
             background:red;
             background-color:hsla(var(--hue,0),60%,5%,.1);
 
@@ -150,7 +143,20 @@ table{
                 background-color:hsla(var(--hue,0),60%,45%,.2);
             }
 
+
      
+        }
+        .left{
+            text-align:left;
+        }
+        .right{
+            text-align:right;
+        }
+        .justify{
+            text-align:justify;
+        }
+        .center{
+            text-align:center;
         }
 
    
@@ -182,45 +188,31 @@ table{
 
 
         var md = function () {/*
-            
+
+|S.No| Name | Age|
+|1|Prateek|30|
+|1|Prateek|30|
+|1|Prateek|30|
+
 |S.No|Name|Age|Sex|Contact|
 |:---:|:---:|:---:|:---:|---|
 |1|Prateek|35|Male|9151abcacb|
-|2|NA|28| Female|na|
+|2|NAa|28| Female|naa|
 
 
 |S.No|Name|Age|Sex|Contact|
-|:---:|:---:|:---:|:---:|---|
+|---|:---|---:|:---:|---|
 |1|Raj|32|Male|9889--------|
 |2|NA|25| Female|na|
 
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|:---:|:---:|:---:|:---:|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
-|3|adf|gfg|asdf|3|adf|gfg|asdf|
+|center|left|right|justify|default|center|left|right|justify|default|
+|:---:|:---|---:|---|---|:---:|:---|---:|---|---|
+|center|left|right|justify|default|center|left|right|justify|default|
+|center|left|right|justify|default|center|left|right|justify|default|
+|center|left|right|justify|default|center|left|right|justify|default|
+|center|left|right|justify|default|center|left|right|justify|default|
+
+
 
         *bold*
         **italic**
